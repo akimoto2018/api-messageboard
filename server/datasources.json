@@ -1,0 +1,11 @@
+{
+  "dsmessageboard": {
+    "url": "https://901b6722-3aa8-4158-865a-f5610afa9978-bluemix:5355b150215536d20008db6a029ac808529b0131dc337f78cd398f185f934789@901b6722-3aa8-4158-865a-f5610afa9978-bluemix.cloudant.com",
+    "database": "messageboard",
+    "username": "901b6722-3aa8-4158-865a-f5610afa9978-bluemix",
+    "password": "5355b150215536d20008db6a029ac808529b0131dc337f78cd398f185f934789",
+    "name": "dsmessageboard",
+    "modelIndex": "",
+    "connector": "cloudant"
+  }
+}
