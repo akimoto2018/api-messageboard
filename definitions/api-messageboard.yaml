@@ -22,7 +22,9 @@ paths:
     patch:
       tags:
         - messageboard
-      summary: Patch an existing model instance or insert a new one into the data source.
+      summary: >-
+        Patch an existing model instance or insert a new one into the data
+        source.
       operationId: messageboard.patchOrCreate
       parameters:
         - name: data
@@ -41,7 +43,9 @@ paths:
     put:
       tags:
         - messageboard
-      summary: Replace an existing model instance or insert a new one into the data source.
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
       operationId: messageboard.replaceOrCreate__put_messageboards
       parameters:
         - name: data
@@ -65,7 +69,9 @@ paths:
       parameters:
         - name: filter
           in: query
-          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          description: >-
+            Filter defining fields, where, include, order, offset, and limit -
+            must be a JSON-encoded string ({"something":"value"})
           required: false
           type: string
           format: JSON
@@ -81,7 +87,9 @@ paths:
     post:
       tags:
         - messageboard
-      summary: Replace an existing model instance or insert a new one into the data source.
+      summary: >-
+        Replace an existing model instance or insert a new one into the data
+        source.
       operationId: messageboard.replaceOrCreate__post_messageboards_replaceOrCreate
       parameters:
         - name: data
@@ -97,76 +105,7 @@ paths:
           schema:
             $ref: '#/definitions/messageboard'
       deprecated: false
-  /messageboards/upsertWithWhere:
-    post:
-      tags:
-        - messageboard
-      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
-      operationId: messageboard.upsertWithWhere
-      parameters:
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          description: An object of model property name/value pairs
-          required: false
-          schema:
-            description: An object of model property name/value pairs
-            $ref: '#/definitions/messageboard'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/messageboard'
-      deprecated: false
-  '/messageboards/{id}/exists':
-    get:
-      tags:
-        - messageboard
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'messageboard.exists__get_messageboards_{id}_exists'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
   '/messageboards/{id}':
-    head:
-      tags:
-        - messageboard
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'messageboard.exists__head_messageboards_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
     get:
       tags:
         - messageboard
@@ -181,35 +120,12 @@ paths:
           format: JSON
         - name: filter
           in: query
-          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          description: >-
+            Filter defining fields and include - must be a JSON-encoded string
+            ({"something":"value"})
           required: false
           type: string
           format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/messageboard'
-      deprecated: false
-    put:
-      tags:
-        - messageboard
-      summary: Replace attributes for a model instance and persist it into the data source.
-      operationId: 'messageboard.replaceById__put_messageboards_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          description: Model instance data
-          required: false
-          schema:
-            description: Model instance data
-            $ref: '#/definitions/messageboard'
       responses:
         '200':
           description: Request was successful
@@ -233,108 +149,6 @@ paths:
           description: Request was successful
           schema:
             type: object
-      deprecated: false
-    patch:
-      tags:
-        - messageboard
-      summary: Patch attributes for a model instance and persist it into the data source.
-      operationId: messageboard.prototype.patchAttributes
-      parameters:
-        - name: data
-          in: body
-          description: An object of model property name/value pairs
-          required: false
-          schema:
-            description: An object of model property name/value pairs
-            $ref: '#/definitions/messageboard'
-        - name: id
-          in: path
-          description: messageboard id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/messageboard'
-      deprecated: false
-  '/messageboards/{id}/replace':
-    post:
-      tags:
-        - messageboard
-      summary: Replace attributes for a model instance and persist it into the data source.
-      operationId: 'messageboard.replaceById__post_messageboards_{id}_replace'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          description: Model instance data
-          required: false
-          schema:
-            description: Model instance data
-            $ref: '#/definitions/messageboard'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/messageboard'
-      deprecated: false
-  /messageboards/findOne:
-    get:
-      tags:
-        - messageboard
-      summary: Find first instance of the model matched by filter from the data source.
-      operationId: messageboard.findOne
-      parameters:
-        - name: filter
-          in: query
-          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/messageboard'
-      deprecated: false
-  /messageboards/update:
-    post:
-      tags:
-        - messageboard
-      summary: 'Update instances of the model matched by {{where}} from the data source.'
-      operationId: messageboard.updateAll
-      parameters:
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          description: An object of model property name/value pairs
-          required: false
-          schema:
-            description: An object of model property name/value pairs
-            $ref: '#/definitions/messageboard'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            description: Information related to the outcome of the operation
-            type: object
-            properties:
-              count:
-                description: The number of instances updated
-                type: number
-                format: double
       deprecated: false
   /messageboards/count:
     get:
@@ -375,8 +189,6 @@ definitions:
       - content
       - title
     additionalProperties: false
-  x-any:
-    properties: {}
 basePath: /api
 swagger: '2.0'
 info:
